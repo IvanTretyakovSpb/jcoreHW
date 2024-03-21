@@ -4,11 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Класс, описывающий интернет-магазин. Хранит данные о покупателях, товарах и заказах.
+ * Имеет метод для оформления нового заказа.
+ */
 final class InternetShop {
+    // Данные о покупателях, товарах и заказах хранятся в ArrayList'х
     final List<Customer> customers;
     final List<Product> products;
     final List<Order> orders;
 
+    // При создании экземпляра интернет-магазина он имеет готовый набор зарегистрированных покупателей и товаров
     public InternetShop() {
         this.customers = Arrays.asList(
                 new Customer("Tretyakov Ivan", 40, "+7-999-999-99-99", Gender.MALE),
@@ -26,6 +32,18 @@ final class InternetShop {
         this.orders = new ArrayList<>(20);
     }
 
+    /**
+     * Создаёт экземпляр заказа и проверяет входящие данные на корректность.
+     *
+     * @param customer покупатель товара
+     * @param product покупаемый товар
+     * @param amount количество покупаемого товара
+     * @param date дата оформления заказа из набора перечислений для учёта наличия праздника
+     * @return экземпляр заказа с валидными данными
+     * @throws CustomerException фатальное исключение, завершающее работу приложения, в случае неучтенного покупателя
+     * @throws ProductException исключение при некорректном указании товара, заказ не оформляется
+     * @throws AmountException исключение при некорректном указании количества товара, заказ оформляется для количества 1.
+     */
     Order makeOrder(Customer customer, Product product, int amount, Celebration date)
             throws CustomerException, ProductException, AmountException {
         if (!customers.contains(customer)) {

@@ -7,6 +7,7 @@ final class Customer {
     private String name;
     private int age;
     private String phone;
+    // Добавлено поле для хранения пола покупателя
     private Gender gender;
 
     public Customer(String name, int age, String phone, Gender gender) {

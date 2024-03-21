@@ -10,6 +10,7 @@ final class Order {
     private Customer customer;
     private Product product;
     private int amount;
+    // Добавлено поле для хранения даты оформления заказа, учитывающей наличие праздника в этот день
     private Celebration date;
 
     public Order(Customer customer, Product product, int amount, Celebration date) {
@@ -26,12 +27,16 @@ final class Order {
                 ", amount=" + amount + ", date=" + date.getHoliday() + '}';
     }
 
+    /**
+     * Производит расчёт общей стоимости заказа с учётом скидок при оформлении в праздники
+     * @return итоговая стоимость заказа с учётом скидки
+     */
     public double getTotalCost() {
         if (date == Celebration.NEW_YEAR) {
             return amount * (1 - NEW_YEAR_DISCOUNT) * product.getPrice();
         }
         if (date == Celebration.MARCH_8 && customer.getGender() == Gender.FEMALE ||
-                date == Celebration.FEBRUARY_23 && customer.getGender() == Gender.MALE) {
+                date == Celebration.FEB_23 && customer.getGender() == Gender.MALE) {
             return amount * (1 - GENDER_DISCOUNT) * product.getPrice();
         }
         return amount * product.getPrice();
