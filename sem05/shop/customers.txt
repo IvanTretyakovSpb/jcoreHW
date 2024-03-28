@@ -1,0 +1,6 @@
+1,Tretyakov Ivan,40,+7-999-999-99-99,m
+2,Sokolova Victoria,25,+7-999-888-88-88,f
+3,Popov Oleg,35,+7-999-777-77-77,m
+4,Smirnova Olga,29,+7-999-555-55-55-55,f
+5,Vasiliy Bobrov,21,+7-234-432-11-99,m
+6,Mikhail Vnukov,51,+7-326-147-18-55,m

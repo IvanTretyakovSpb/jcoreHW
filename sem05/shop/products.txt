@@ -1,0 +1,7 @@
+1,Book,15
+2,Pen,10
+3,Mobile phone,300
+4,Pencil,5
+5,Calculator,20
+7,Black chair,32
+8,White table,54
